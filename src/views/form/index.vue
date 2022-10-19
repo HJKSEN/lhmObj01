@@ -19,10 +19,10 @@
           <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;" />
         </el-col>
       </el-form-item>
-      <el-form-item label="Instant delivery">
-        <el-switch v-model="form.delivery" />
+      <el-form-item label="Instant delivery" >
+        <el-switch v-model="form.delivery"/>
       </el-form-item>
-      <el-form-item label="Activity type">
+      <el-form-item label="Activity type" v-if="form.delivery==false">
         <el-checkbox-group v-model="form.type">
           <el-checkbox label="Online activities" name="type" />
           <el-checkbox label="Promotion activities" name="type" />
@@ -30,13 +30,13 @@
           <el-checkbox label="Simple brand exposure" name="type" />
         </el-checkbox-group>
       </el-form-item>
-      <el-form-item label="Resources">
+      <el-form-item label="Resources" v-if="form.delivery==false">
         <el-radio-group v-model="form.resource">
           <el-radio label="Sponsor" />
           <el-radio label="Venue" />
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Activity form">
+      <el-form-item label="Activity form" v-if="form.delivery==false">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
@@ -59,8 +59,8 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
-      }
+        desc: '',
+      },
     }
   },
   methods: {
@@ -72,8 +72,8 @@ export default {
         message: 'cancel!',
         type: 'warning'
       })
-    }
-  }
+    },
+}
 }
 </script>
 
